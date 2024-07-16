@@ -1,0 +1,54 @@
+{% load static %}
+<html> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+        <!-- <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <title>Login</title>
+        <link rel="stylesheet" href="{%static 'css/homepage.css'%}">
+        <div class="main">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />"
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      </head>   
+   
+        <div class="frontgap"></div>
+        <div class="content">
+            <div class="c1">
+                <p>Instabook</p>
+                
+                <p4>You have successfully created the account .. Login to access the page</p4>
+               
+            </div>
+            <div class="c3"></div>
+            
+            <div class="c2">
+            <p3>Login below to connect with the world</p3>
+            <form action="{%url 'login'%}" class="f1" method="post">
+            {% csrf_token%}
+            <input class="f1" type="text" placeholder="Enter your name", name="usern">
+            <input class="f1" type="password" placeholder="Enter your password", name="passn">
+            <input class="sub1" type="submit" value="Login">
+            </form>
+            <hr width="100%" size="2">
+            <!-- <form action="{%url 'login'%}" class="f1" method="post">
+                {% csrf_token%}
+                <input class="f1" type="text" placeholder="Enter your name", name="usern">
+                <input class="f1" type="password" placeholder="Enter your password", name="passn">
+                <input class="sub1" type="submit" value="Login">
+                </form>
+                <hr width="100%" size="2">
+                <div class="register"> -->
+          
+                
+   
+            </div>
+            </div>
+        </div>
+        
+    </div>
+
+</html>

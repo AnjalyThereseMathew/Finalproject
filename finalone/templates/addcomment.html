@@ -1,0 +1,6 @@
+<!-- Form for adding a comment to a post -->
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Comment</button>
+  </form>

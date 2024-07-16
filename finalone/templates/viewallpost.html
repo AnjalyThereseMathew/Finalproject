@@ -1,0 +1,38 @@
+
+{% for post in posts %}
+  <div class="post">
+    <img src="{{ post.image }}" alt="Post Image">
+    <p>Caption given :{{ post.caption }}</p>
+   
+    
+    <strong>Likes:   {{ post.likes.all.count }}</strong>
+  
+    <!-- Form for adding a comment -->
+    <form action="{% url 'add_comment' post.id %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Add Comment</button>
+    </form>
+    <form action="{% url 'post_download' post.pk %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Download</button>
+      </form>
+    
+    
+    <!-- Button for liking/unliking post -->
+    <form action="{% url 'like_post' post.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit">{% if request.user in post.likes.all %}Unlike{% else %}Like{% endif %}</button>
+    </form>
+    <!-- Display comments -->
+    <ul>
+      {% for comment in comment %}
+      {%if comment.id == post.id%}
+  <p9>See all comments</p9>
+        <li>{{ comment.author.username }} comments as: {{ comment.text }}</li>
+        {%endif%}
+      {% endfor %} 
+    </ul>
+  </div>
+{% endfor %}

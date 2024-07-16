@@ -1,0 +1,222 @@
+{% load static %}
+<html> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+        <!-- <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <title>Home Page</title>
+        <link rel="stylesheet" href="{%static 'css/homepage.css'%}">
+        <div class="main">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />"
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      </head>  
+      <script>
+        function openForm() {
+            document.getElementById("myform").style.display = "block";}
+      </script>
+      <div class='main'>
+        <nav class="navbar navbar-expand-lg custom">
+            <div class="container-fluid colorme custom">
+              <a class="navbar-brand colorme"  href="#">INSTABOOK</a>
+             
+              
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link colorme custom" aria-current="page" href="{%url 'loginmain'%}">Home</a>
+                  </li>
+                    </a>
+                    
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="{%url 'login' %}">Login</a>
+                  </li> -->
+                  <!-- {%if request.user.is_superuser%}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{%url 'addproduct' %}">Add</a>
+                  </li>
+                  {%endif%} -->
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle colorme custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Add something
+                    </a><ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{%url 'createpost'%}">Photos</a></li>
+                        <li><a class="dropdown-item" href="#">Video</a></li>
+                        <li><a class="dropdown-item" href="#">Story</a></li>
+                        <li><a class="dropdown-item" href="#">Thoughts</a></li>
+                        <li><a class="dropdown-item" href="#">Life event</a></li>
+
+                     
+                    </ul>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle colorme custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="material-symbols-outlined icon px-2"  >
+                          person
+                          </span>
+                      </a><ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{%url 'personaldetails'%}">Add/Edit profile details</a></li>
+                          {%for i in pro%}
+                          {%if user == i.ename%}
+                          <li><a class="dropdown-item" href="{%url 'profile' i.id%}">Profile Page</a></li></ul></li>
+                          {%endif%}
+                          {%endfor%}
+                          {%for i in pro%}
+                          {%if user == i.ename%}
+                          <li class="nav-item px-4">
+                            <a class="nav-link disabled colorme custom"> {{i.ename}}</a>
+                          </li>
+                          {%endif%}
+                          {%endfor%}
+                          <li class="nav-item px-4">
+                            <a class="nav-link disabled colorme custom">Connect with all</a>
+                          </li>
+                  
+                  
+                  <li class="nav-item px-4">
+                <span class="material-symbols-outlined icon px-2">
+                    add_a_photo
+                    </span>
+                  <span class="material-symbols-outlined icon px-2" >
+                        mark_unread_chat_alt
+                        </span>
+                       <span class="icons material-symbols-outlined icon px-2"  >
+                       notifications
+                        </span>  </li>
+              
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+           
+                 
+              </div>
+            </div>
+          </nav>
+          <div class="main1">
+          <div class="left">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{%url 'posts' %}">Post Something</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Friends</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Give Review</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Profile Page</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Start a new group chat</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Create a new group</a>
+                </li>
+              
+            </ul> </div>
+           
+        
+<div class="posts">
+  {%for i in pro%}
+  {%if i.ename == user%}
+  
+  {{i.post1}}
+  
+ {%endif%}
+  {%endfor%}
+
+</div> 
+
+{% for post in posts %}
+  <div class="post">
+    <img src="{{ post.image }}" alt="Post Image">
+    <p>Caption given :{{ post.caption }}</p>
+   
+    
+    <strong>Likes:   {{ post.likes.all.count }}</strong>
+  
+    <!-- Form for adding a comment -->
+    <form action="{% url 'add_comment' post.id %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Add Comment</button>
+    </form>
+    <!-- Button for liking/unliking post -->
+    <form action="{% url 'like_post' post.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit">{% if request.user in post.likes.all %}Unlike{% else %}Like{% endif %}</button>
+    </form>
+    <!-- Display comments -->
+    <ul>
+      {% for comment in comment %}
+      {%if comment.id == post.id%}
+  <p9>See all comments</p9>
+        <li>{{ comment.author.username }} comments as: {{ comment.text }}</li>
+        {%endif%}
+      {% endfor %} 
+    </ul>
+  </div>
+{% endfor %}
+</body>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+    .main1{
+                position: relative;
+                background-color:   rgb(187, 178, 178);
+                display: flex;
+                flex-direction: row;
+                gap:100px;
+            }
+    .left{
+                background-color: white;
+                border-radius: 10px;
+                border-color: rgb(187, 178, 178);
+                padding: 30px;
+                width:350px;
+                display: flex;
+                top:10px;
+                position:absolute;
+                height:500px;
+                left:10px;
+                color:black;
+                display: flex;
+                flex-direction: column;
+            }
+            .posts{
+              background-color: white;
+                border-radius: 10px;
+                border-color: rgb(187, 178, 178);
+                padding: 30px;
+                width:1000px;
+                display: flex;
+                top:10px;
+                position:absolute;
+                height:900px;
+                left:360px;
+                color:black;
+                display: flex;
+                flex-direction: column;
+                font-weight: bold;
+                color: black;
+                margin-left: 10px;
+            }
+    .custom{
+        background-color: rgb(104, 104, 182);
+        color:white;
+    }
+</style>
+
+</html>

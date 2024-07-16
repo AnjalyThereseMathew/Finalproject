@@ -1,0 +1,238 @@
+{% load static %}
+<html> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+        <!-- <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <title>Home Page</title>
+        <link rel="stylesheet" href="{%static 'css/homepage.css'%}">
+        <div class="main">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />"
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      </head>  
+      <script>
+        function openForm() {
+            document.getElementById("myform").style.display = "block";}
+      </script>
+      <div class='main'>
+        <nav class="navbar navbar-expand-lg custom">
+            <div class="container-fluid colorme custom">
+              <a class="navbar-brand colorme"  href="#">INSTABOOK</a>
+             
+              
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link colorme custom" aria-current="page" href="{%url 'loginmain'%}">Home</a>
+                  </li>
+                    </a>
+                    
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="{%url 'login' %}">Login</a>
+                  </li> -->
+                  <!-- {%if request.user.is_superuser%}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{%url 'addproduct' %}">Add</a>
+                  </li>
+                  {%endif%} -->
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle colorme custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Add something
+                    </a><ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Photos</a></li>
+                        <li><a class="dropdown-item" href="#">Video</a></li>
+                        <li><a class="dropdown-item" href="#">Story</a></li>
+                        <li><a class="dropdown-item" href="#">Thoughts</a></li>
+                        <li><a class="dropdown-item" href="#">Life event</a></li>
+
+                     
+                    </ul>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle colorme custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="material-symbols-outlined icon px-2"  >
+                          person
+                          </span>
+                      </a><ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{%url 'personaldetails'%}">Add/Edit profile details</a></li>
+                          {%for i in pro%}
+                          <li><a class="dropdown-item" href="{%url 'profile' i.id%}">Profile Page</a></li>{%endfor%}
+                        </ul></li>
+                          
+                  
+                  <li class="nav-item px-4">
+                    <a class="nav-link disabled colorme custom">CONNECT WITH YOUR DEAR ONES </a>
+                  </li>
+                  <li class="nav-item px-4">
+                <span class="material-symbols-outlined icon px-2">
+                    add_a_photo
+                    </span>
+                  <span class="material-symbols-outlined icon px-2" >
+                        mark_unread_chat_alt
+                        </span>
+                       <span class="icons material-symbols-outlined icon px-2"  >
+                       notifications
+                        </span>  </li>
+              
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+           
+                 
+              </div>
+            </div>
+          </nav>
+          <div class="main1">
+        <div class="left">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Friends</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Suggestions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Close Friends</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Friend Requests</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Custom List</a>
+              </li>
+            
+          </ul> </div>
+          
+           
+          <div class="friends"> 
+            <ul>
+                {% for user in non_friends %}
+                 
+                <div class="card friends1" style="width: 12rem;">
+                    <img src="/finalprjct/{{user.image}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                       
+                      <h5 class="card-title title">{{user.ename}}</h5>
+                      
+                <a href="{%url 'sendrequest' user.id%}" class="btn btn-primary">Send Request</a>
+                    </div>
+                  </div></ul>
+          
+              {% endfor %}
+          
+        </div> </div></div>
+        
+                
+
+          <style>
+            * {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                outline: 0;
+                font-size: 100%;
+                vertical-align: baseline;
+                background: transparent;
+            }
+            .left{
+                background-color: white;
+                border-radius: 10px;
+                border-color: rgb(187, 178, 178);
+                padding: 30px;
+                width:350px;
+                display: flex;
+                top:10px;
+                position:absolute;
+                height:500px;
+                left:10px;
+                color:black;
+                display: flex;
+                flex-direction: column;
+            }
+            .color{
+                background-color: rgb(175, 166, 166);
+            }
+           
+          .card{
+            display: flex;
+            
+          }
+         
+            .p2{
+                color: black;
+                font-size: 20px;
+            }
+            .main{
+                position: relative;
+                background-color:   rgb(187, 178, 178);
+               
+            }
+            .main1{
+                position: relative;
+                background-color:   rgb(187, 178, 178);
+                display: flex;
+                flex-direction: row;
+            }
+            .friends{
+                display: flex;
+                position: absolute;
+                left:380px;
+                top:10px;
+                gap:20px;
+                flex-wrap: wrap;
+                justify-content: center;
+                display: flex;
+                
+width:950px;
+        flex-direction: row;
+        background-color:white;
+      }
+            
+            .name{
+                position :absolute;
+                left:250px;
+                color:black;
+                font-style: normal;
+                font-size: 30px;
+                top:350px
+        
+            }
+            .cover{
+                height:35%;
+                width:100%;
+                border-radius: 60%;
+            }
+            /* img{
+        border-radius: 50%;
+            } */
+            .profilepic{
+                border-collapse: separate; 
+                height:50%;
+                /* width:50%; */
+                border-radius: 50%;
+              
+          
+            }
+            .custom{
+                background-color: rgb(104, 104, 182);
+                color:white;
+            }
+            .main{
+                display:flex;
+                flex-direction: column;
+            }
+            .p{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap:2px;
+            }
+        </style>
+        </html>
+        
+        

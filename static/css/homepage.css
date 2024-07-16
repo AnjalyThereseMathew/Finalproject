@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+.main{
+    background-color: rgb(242, 248, 248);
+    display: flex;
+    flex-direction: column;
+    height:1000%;
+    position: relative;
+}
+/* .main1{
+    /* background-image: url("social1.png"); */
+    /* background-color: black;
+    display: flex;
+    flex-direction: column; */
+
+
+
+.content{
+    display: flex;
+    flex-direction: row;
+    margin:50px;
+    
+}
+.c3{
+    min-width:30%;
+}
+.f1{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    border-radius: 1px;
+    border-color: rgb(197, 194, 194);
+
+
+}
+input[type=text]{
+    padding: 6px 20px;
+  margin: 5px 0;
+}
+input[type=password]{
+    padding: 6px 20px;
+  margin: 5px 0;
+}
+.f1{
+    width:330px;
+    height:150px;
+    gap:10px;
+}
+.register{
+    gap:5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+ 
+}
+.sub{
+    background-color: rgb(65, 65, 240);
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+   
+    margin-left: -50px;
+}
+    
+.sub1{
+    background-color: rgb(32, 175, 32);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sub:hover {
+    background-color: #0400ff;
+  }
+  .sub1:hover {
+    background-color:darkgreen;
+  }
+  form{
+    width:300px; 
+    padding:5px;
+   
+}
+p{
+    color: blue;
+    font-weight: bolder;
+    font-size: 50px;
+}
+input[type=submit]{
+    color:white;
+    padding: 6px 20px;
+    margin: 5px 0;
+    border-radius: 10px;
+}
+
+/* .image
+    {
+        max-width: 100%;
+        max-height: 50%;
+        object-fit: c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       /* padding-left: 40px; */
+
+       
+       .confirm {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: center; */
+       }
+       .frontgap{
+        min-height: 100px;
+    }
+    .frontgap1{
+        max-height:8px;
+        
+    }
+    .main1{
+        background-image: url("social1.png");
+        /* background-color: black; */
+        display: flex;
+        flex-direction: column;
+    }
+    .popup {
+       
+        z-index: 1;
+       display: flex;
+       align-items: center;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(
+            0,
+            0,
+            0,
+            0.4
+        );
+        display: none;
+    }
+    .popup-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888888;
+        width: 30%;
+        font-weight: bolder;
+    }
+    .popup-content button {
+        display: block;
+        margin: 0 auto;
+    }
+    .show {
+        display: block;
+    }
+    .open-button {
+background-color:blue;
+color: white;
+padding: 16px 20px;
+border: none;
+cursor: pointer;
+opacity: 0.8;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 280px;
+}
+.form-container .btn {
+background-color: #04AA6D;
+color: white;
+padding: 16px 20px;
+border: none;
+cursor: pointer;
+width: 100%;
+margin-bottom:10px;
+opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+opacity: 1;
+}

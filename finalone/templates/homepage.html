@@ -1,0 +1,116 @@
+{% load static %}
+<html> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    
+        <!-- <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <title>INSTABOOK </title>
+        <link rel="stylesheet" href="{%static 'css/homepage.css'%}">
+        <div class="main">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />"
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      </head>   
+   
+        <div class="frontgap"></div>
+        <div class="content">
+            <div class="c1">
+                <p>Instabook</p>
+                
+               
+                <p4>All Profiles</p4>
+                <div class="profile">
+              <!-- <div class="profile"> -->
+                {% for user in my_data %}
+                
+                   
+                
+              </ul>
+              <div class="card" style="width: 10rem;">
+                  <img src="/finalprjct/{{user.image}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                     
+                    <h5 class="card-title title">{{user.ename}}</h5>
+                    
+              <a href="{%url 'sendrequest' user.id%}" class="btn btn-primary">Login</a>
+                  </div>
+                </div>
+            
+                {% endfor %} </div>
+
+            </div>
+            <div class="c2">
+              <p3>Login below to connect with the world</p3>
+              <!-- {%if user.is_authenticated%} -->
+              <form action="{%url 'login'%}" class="f1" method="post">
+              {% csrf_token%}
+              <input class="f1" type="text" placeholder="Enter your name", name="usern">
+              <input class="f1" type="password" placeholder="Enter your password", name="passn">
+              <input class="sub1" type="submit" value="Login">
+              </form>
+              <!-- {%endif%} -->
+              <br>
+              {% if messages %}
+              <ul class="messages">
+                  {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                  {% endfor %}
+              </ul>
+              {% endif %}
+              <hr width="100%" size="2">
+              <div class="register">
+                  
+      <p1>New to INSTABOOK? Register Below</p1>
+      <form action="{%url 'register' %}">
+        {% csrf_token%}
+         <input class="sub" type="submit" value="Create new account">
+      </form>
+              </div>
+              </div>
+      
+  
+               
+            </div>
+         
+        </div>
+        
+    </div>
+    <style>
+      /* .profile{
+        display: flex;
+        flex-wrap: wrap;
+
+      } */
+      .profile{
+        display: flex;
+        flex-wrap: wrap;
+        width:500px;
+      }
+      .c2{
+    border-radius: 10px;
+    border-width: 2px;
+    background-color: white;
+    border-color: black;
+    position: absolute;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    height:60px;
+    /* align-items: center; */
+    text-align: center;
+    justify-content: center;
+  left:800px;
+    gap:8px;
+    top:350px;
+}
+      .title{
+        font-size: small;
+      }
+    </style>
+      
+    </scripts>
+
+</html>
